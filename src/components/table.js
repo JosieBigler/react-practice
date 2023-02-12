@@ -1,35 +1,14 @@
-import Header from "./header";
+import Header from "./tableHeader";
+import TableBody from "./tableBody";
 
-export default function Table(){
-    const headers = ["Header 1", "Header 2", "hEaDer 3"];
+export default function Table({data}){
+    const headers = Object.getOwnPropertyNames(data[0]);
+    
     return (
         <div>
             <table>
                 <Header headers={headers}/>
-                <tbody>
-                    <tr>
-                        <td>
-                            Data for 1
-                        </td>
-                        <td>
-                            Data for 2
-                        </td>
-                        <td>
-                            Data for 3
-                        </td>
-                    </tr>
-                    <tr>
-                    <td>
-                        Data for 1
-                    </td>
-                    <td>
-                        Data for 2
-                    </td>
-                    <td>
-                        Data for 3
-                    </td>
-                    </tr>
-                </tbody>
+                <TableBody data={data} headers={headers}/>
             </table>
         </div>
     );
