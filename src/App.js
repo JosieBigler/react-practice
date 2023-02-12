@@ -10,8 +10,9 @@ function App() {
 
 const [data, setData] = useState(startingData);
 
-function deleteData(){
-  setData(prevState => prevState.filter(x => x.id != 2));
+function deleteData(e){
+  let id = e.target.value;
+  setData(prevState => prevState.filter(x => x.id != id));
 }
 
 function addData(){
@@ -19,7 +20,7 @@ function addData(){
 }
   return (
     <div className="App">
-      <Table data={data}/>
+      <Table data={data} deleteHandler={deleteData}/>
       <button onClick={addData}>Add Data</button>
       <button onClick={deleteData}>deleteData</button>
     </div>

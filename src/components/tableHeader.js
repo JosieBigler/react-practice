@@ -3,6 +3,7 @@ export default function TableHeader({headers}) {
         <thead className="TableHeader">
             <tr>
                 {headers.map((item, index) => (<th key={index}>{item}</th>))}
+                <th>Delete</th>
             </tr>
         </thead>
     );
