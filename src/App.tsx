@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {MouseEventHandler, useState} from 'react';
 import './App.css';
 import Table from './components/table';
 
@@ -10,9 +10,9 @@ function App() {
 
 const [data, setData] = useState(startingData);
 
-function deleteData(e){
+function deleteData(e: any){
   let id = e.target.value;
-  setData(prevState => prevState.filter(x => x.id != id));
+  setData(prevState => prevState.filter(x => x.id != +id));
 }
 
 function addData(){
